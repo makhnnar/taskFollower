@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/itemContainer"
+    android:layout_width="match_parent"
+    android:layout_height="140dp"
+    android:layout_marginTop="4dp"
+    app:cardCornerRadius="8dp"
+    app:cardBackgroundColor="@color/whiteGray">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clBgCard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="1dp"
+        android:layout_gravity="center">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gdH33"
+            app:layout_constraintGuide_percent=".30"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:orientation="vertical" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvModel"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:text="@string/dummy_model"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat_regular"
+            android:maxLines="1"
+            android:gravity="center"
+            android:textSize="14sp"
+            app:autoSizeMaxTextSize="16sp"
+            app:autoSizeMinTextSize="12sp"
+            app:autoSizeTextType="uniform"
+            app:autoSizeStepGranularity="1sp"
+            app:layout_constraintStart_toEndOf="@id/gdH33"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tvPrice"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="@string/dummy_price"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat_regular"
+            android:maxLines="1"
+            android:gravity="center_vertical"
+            android:textSize="14sp"
+            app:autoSizeMaxTextSize="16sp"
+            app:autoSizeMinTextSize="12sp"
+            app:autoSizeTextType="uniform"
+            app:autoSizeStepGranularity="1sp"
+            app:layout_constraintTop_toBottomOf="@id/tvModel"
+            app:layout_constraintStart_toEndOf="@id/gdH33"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tvCategory"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="@string/dummy_category"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat_regular"
+            android:maxLines="1"
+            android:gravity="center_vertical"
+            android:textSize="14sp"
+            app:autoSizeMaxTextSize="16sp"
+            app:autoSizeMinTextSize="12sp"
+            app:autoSizeTextType="uniform"
+            app:autoSizeStepGranularity="1sp"
+            app:layout_constraintTop_toBottomOf="@id/tvPrice"
+            app:layout_constraintStart_toEndOf="@id/gdH33"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lbModel"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:text="@string/model"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat_bold"
+            android:maxLines="1"
+            android:gravity="center"
+            android:textSize="14sp"
+            app:autoSizeMaxTextSize="16sp"
+            app:autoSizeMinTextSize="12sp"
+            app:autoSizeTextType="uniform"
+            app:autoSizeStepGranularity="1sp"
+            app:layout_constraintEnd_toStartOf="@id/gdH33"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/lbPrice"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lbPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="@string/price"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat_bold"
+            android:maxLines="1"
+            android:gravity="center_vertical"
+            android:textSize="14sp"
+            app:autoSizeMaxTextSize="16sp"
+            app:autoSizeMinTextSize="12sp"
+            app:autoSizeTextType="uniform"
+            app:autoSizeStepGranularity="1sp"
+            app:layout_constraintTop_toBottomOf="@id/lbModel"
+            app:layout_constraintEnd_toStartOf="@id/gdH33"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/lbCategory"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lbCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="@string/category"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat_bold"
+            android:maxLines="1"
+            android:gravity="center_vertical"
+            android:textSize="14sp"
+            app:autoSizeMaxTextSize="16sp"
+            app:autoSizeMinTextSize="12sp"
+            app:autoSizeTextType="uniform"
+            app:autoSizeStepGranularity="1sp"
+            app:layout_constraintTop_toBottomOf="@id/lbPrice"
+            app:layout_constraintEnd_toStartOf="@id/gdH33"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

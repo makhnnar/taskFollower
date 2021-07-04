@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="model">Model</string>
+    <string name="price">Price</string>
+    <string name="category">Category</string>
+    <string name="dummy_price">$12456</string>
+    <string name="dummy_category">some category</string>
+    <string name="seats">Seats</string>
+    <string name="state">State</string>
+    <string name="release_date">Release Date</string>
+    <string name="dummy_seats">4</string>
+    <string name="dummy_state">New</string>
+    <string name="dummy_date">12/12/24</string>
+    <string name="category_value">Category Value</string>
+    <string name="dummy_category_value">1020 GHz</string>
+    <string name="there_is_no_elements_to_show_please_add_some">There are no elements to show. Please add some</string>
+</resources>

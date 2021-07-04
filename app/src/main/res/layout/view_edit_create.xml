@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gdH33"
+        app:layout_constraintGuide_percent=".30"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:orientation="vertical" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gdV1"
+        app:layout_constraintGuide_percent=".14"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:orientation="horizontal" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gdV2"
+        app:layout_constraintGuide_percent=".28"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:orientation="horizontal" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gdV3"
+        app:layout_constraintGuide_percent=".42"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:orientation="horizontal" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gdV4"
+        app:layout_constraintGuide_percent=".56"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:orientation="horizontal" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gdV5"
+        app:layout_constraintGuide_percent=".70"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:orientation="horizontal" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gdV6"
+        app:layout_constraintGuide_percent=".84"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:orientation="horizontal" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etModel"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:hint="@string/dummy_model"
+        android:textColor="@color/black"
+        android:fontFamily="@font/montserrat_regular"
+        android:maxLines="1"
+        android:gravity="center"
+        android:textSize="14sp"
+        app:autoSizeMaxTextSize="16sp"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeTextType="uniform"
+        app:autoSizeStepGranularity="1sp"
+        app:layout_constraintStart_toEndOf="@id/gdH33"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/gdV1"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etPrice"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:hint="@string/dummy_price"
+        android:textColor="@color/black"
+        android:fontFamily="@font/montserrat_regular"
+        android:maxLines="1"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:inputType="number"
+        app:autoSizeMaxTextSize="16sp"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeTextType="uniform"
+        app:autoSizeStepGranularity="1sp"
+        app:layout_constraintTop_toBottomOf="@id/gdV1"
+        app:layout_constraintStart_toEndOf="@id/gdH33"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/gdV2"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etSeats"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:hint="@string/dummy_seats"
+        android:textColor="@color/black"
+        android:fontFamily="@font/montserrat_regular"
+        android:maxLines="1"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:inputType="number"
+        app:autoSizeMaxTextSize="16sp"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeTextType="uniform"
+        app:autoSizeStepGranularity="1sp"
+        app:layout_constraintTop_toBottomOf="@id/gdV2"
+        app:layout_constraintStart_toEndOf="@id/gdH33"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/gdV3"/>
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/sState"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:spinnerMode="dialog"
+        android:textSize="14sp"
+        app:autoSizeMaxTextSize="16sp"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeTextType="uniform"
+        app:autoSizeStepGranularity="1sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/gdH33"
+        app:layout_constraintTop_toBottomOf="@id/gdV3"
+        app:layout_constraintBottom_toTopOf="@id/gdV4"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etRelease"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:hint="@string/dummy_date"
+        android:textColor="@color/black"
+        android:fontFamily="@font/montserrat_regular"
+        android:maxLines="1"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:inputType="date"
+        app:autoSizeMaxTextSize="16sp"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeTextType="uniform"
+        app:autoSizeStepGranularity="1sp"
+        app:layout_constraintTop_toBottomOf="@id/gdV4"
+        app:layout_constraintStart_toEndOf="@id/gdH33"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/gdV5"/>
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/sCategory"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/montserrat_regular"
+        android:maxLines="1"
+        android:gravity="center"
+        android:spinnerMode="dialog"
+        android:textSize="14sp"
+        app:autoSizeMaxTextSize="16sp"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeTextType="uniform"
+        app:autoSizeStepGranularity="1sp"
+        app:layout_constraintTop_toBottomOf="@id/gdV5"
+        app:layout_constraintStart_toEndOf="@id/gdH33"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/gdV6"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etCategory"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:hint="@string/dummy_category"
+        android:textColor="@color/black"
+        android:fontFamily="@font/montserrat_regular"
+        android:maxLines="1"
+        android:gravity="center"
+        android:textSize="14sp"
+        app:autoSizeMaxTextSize="16sp"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeTextType="uniform"
+        app:autoSizeStepGranularity="1sp"
+        app:layout_constraintTop_toBottomOf="@id/gdV5"
+        app:layout_constraintStart_toEndOf="@id/gdH33"
+        app:layout_constraintEnd_toStartOf="@id/btnDiscardCat"
+        app:layout_constraintBottom_toTopOf="@+id/gdV6"/>
+
+    <ImageView
+        android:id="@+id/btnDiscardCat"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_close"
+        app:tint="@color/red"
+        app:layout_constraintTop_toBottomOf="@id/gdV5"
+        app:layout_constraintStart_toEndOf="@id/etCategory"
+        app:layout_constraintEnd_toStartOf="@id/btnAddCat"
+        app:layout_constraintBottom_toTopOf="@+id/gdV6"/>
+
+    <ImageView
+        android:id="@+id/btnAddCat"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_done"
+        app:tint="@color/green"
+        app:layout_constraintTop_toBottomOf="@id/gdV5"
+        app:layout_constraintStart_toEndOf="@id/btnDiscardCat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/gdV6"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/tvCategoryValue"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:gravity="center"
+        android:hint="@string/dummy_category_value"
+        android:maxLines="1"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:inputType="number"
+        app:autoSizeMaxTextSize="16sp"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnDone"
+        app:layout_constraintStart_toEndOf="@id/gdH33"
+        app:layout_constraintTop_toBottomOf="@id/gdV6" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/lbModel"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="@string/model"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:autoSizeMaxTextSize="16sp"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@id/gdV1"
+        app:layout_constraintEnd_toStartOf="@id/gdH33"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/lbPrice"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:text="@string/price"
+        android:textColor="@color/black"
+        android:fontFamily="@font/montserrat_bold"
+        android:maxLines="1"
+        android:gravity="center"
+        android:textSize="14sp"
+        app:autoSizeMaxTextSize="16sp"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeTextType="uniform"
+        app:autoSizeStepGranularity="1sp"
+        app:layout_constraintTop_toBottomOf="@id/gdV1"
+        app:layout_constraintEnd_toStartOf="@id/gdH33"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/gdV2"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/lbSeats"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:text="@string/seats"
+        android:textColor="@color/black"
+        android:fontFamily="@font/montserrat_bold"
+        android:maxLines="1"
+        android:gravity="center"
+        android:textSize="14sp"
+        app:autoSizeMaxTextSize="16sp"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeTextType="uniform"
+        app:autoSizeStepGranularity="1sp"
+        app:layout_constraintTop_toBottomOf="@id/gdV2"
+        app:layout_constraintEnd_toStartOf="@id/gdH33"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/gdV3"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/lbState"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:text="@string/state"
+        android:textColor="@color/black"
+        android:fontFamily="@font/montserrat_bold"
+        android:maxLines="1"
+        android:gravity="center"
+        android:textSize="14sp"
+        app:autoSizeMaxTextSize="16sp"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeTextType="uniform"
+        app:autoSizeStepGranularity="1sp"
+        app:layout_constraintTop_toBottomOf="@id/gdV3"
+        app:layout_constraintEnd_toStartOf="@id/gdH33"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/gdV4"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/lbRelease"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:text="@string/release_date"
+        android:textColor="@color/black"
+        android:fontFamily="@font/montserrat_bold"
+        android:maxLines="2"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:textSize="14sp"
+        app:autoSizeMaxTextSize="16sp"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeTextType="uniform"
+        app:autoSizeStepGranularity="1sp"
+        app:layout_constraintTop_toBottomOf="@id/gdV4"
+        app:layout_constraintEnd_toStartOf="@id/gdH33"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/gdV5"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/lbCategory"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:text="@string/category"
+        android:textColor="@color/black"
+        android:fontFamily="@font/montserrat_bold"
+        android:maxLines="1"
+        android:gravity="center"
+        android:textSize="14sp"
+        app:autoSizeMaxTextSize="16sp"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeTextType="uniform"
+        app:autoSizeStepGranularity="1sp"
+        app:layout_constraintTop_toBottomOf="@id/gdV5"
+        app:layout_constraintEnd_toStartOf="@id/gdH33"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/gdV6"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/lbCategoryValue"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:text="@string/category_value"
+        android:textColor="@color/black"
+        android:fontFamily="@font/montserrat_bold"
+        android:maxLines="2"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:textSize="14sp"
+        app:autoSizeMaxTextSize="16sp"
+        app:autoSizeMinTextSize="10sp"
+        app:autoSizeTextType="uniform"
+        app:autoSizeStepGranularity="1sp"
+        app:layout_constraintTop_toBottomOf="@id/gdV6"
+        app:layout_constraintEnd_toStartOf="@id/gdH33"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnDone"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/ic_circle"
+        android:src="@drawable/ic_done"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</merge>
+
