@@ -14,8 +14,8 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.pedrogomez.taskfollower.R
 import com.pedrogomez.taskfollower.databinding.ViewEditCreateBinding
-import com.pedrogomez.taskfollower.domian.db.DailyTime
-import com.pedrogomez.taskfollower.domian.view.CarModel
+import com.pedrogomez.taskfollower.domian.db.DailyTimeDBM
+import com.pedrogomez.taskfollower.domian.view.TaskVM
 import kotlin.collections.ArrayList
 
 class EditCreateCarView @JvmOverloads constructor(
@@ -53,9 +53,9 @@ class EditCreateCarView @JvmOverloads constructor(
 
     private var btnCancelCategory : ImageView
 
-    private var carModel: CarModel? = null
+    private var taskVM: TaskVM? = null
 
-    private var categories = ArrayList<DailyTime>()
+    private var categories = ArrayList<DailyTimeDBM>()
 
     var userActions : UserActions? = null
 
@@ -125,7 +125,7 @@ class EditCreateCarView @JvmOverloads constructor(
     }
 
     private fun saveCategory() {
-        var category = DailyTime(
+        var category = DailyTimeDBM(
                 0,
                 etCategory.text.toString(),
                 ""
@@ -141,8 +141,8 @@ class EditCreateCarView @JvmOverloads constructor(
 
     private fun saveItem() {
         val category = categories[sCategory?.selectedItemPosition ?: 0]
-        carModel = CarModel(
-                carModel?.id?:0,
+        taskVM = TaskVM(
+                taskVM?.id?:0,
                 etSeats.text.toString(),
                 etPrice.text.toString(),
                 sState.selectedItemPosition == 0,
@@ -151,19 +151,19 @@ class EditCreateCarView @JvmOverloads constructor(
                 category.id,
                 category.name,
                 category.value,
-                carModel?.valueQuantityId?:0,
+                taskVM?.valueQuantityId?:0,
                 etCatValue.text.toString(),
                 ""
         )
-        carModel?.let {
+        taskVM?.let {
             userActions?.saveItem(it)
         }
     }
 
-    fun setCategories(dailyTimes: List<DailyTime>){
+    fun setCategories(dailyTimeDBMS: List<DailyTimeDBM>){
         this.categories.clear()
-        this.categories.addAll(dailyTimes)
-        val listTitle : MutableList<String> = dailyTimes.map {
+        this.categories.addAll(dailyTimeDBMS)
+        val listTitle : MutableList<String> = dailyTimeDBMS.map {
             it.name
         }.toMutableList()
         listTitle.add("Add Category")
@@ -173,30 +173,30 @@ class EditCreateCarView @JvmOverloads constructor(
                 listTitle.toList()
         )
         sCategory.adapter = dataAdapter
-        carModel?.let {
-            setPositionCategory(it, dailyTimes)
+        taskVM?.let {
+            setPositionCategory(it, dailyTimeDBMS)
         }
     }
 
     private fun setPositionCategory(
-            carModel1: CarModel,
-            dailyTimes: List<DailyTime>
+            taskVM1: TaskVM,
+            dailyTimeDBMS: List<DailyTimeDBM>
     ) {
-        if(dailyTimes.isNotEmpty()){
-            lbCatValue.text = carModel1.valueName?:""
-            etCatValue.setText(carModel1.valueQuantity)
-            val selected = dailyTimes.filter { cat ->
-                carModel1.categoryId == cat.id
+        if(dailyTimeDBMS.isNotEmpty()){
+            lbCatValue.text = taskVM1.valueName?:""
+            etCatValue.setText(taskVM1.valueQuantity)
+            val selected = dailyTimeDBMS.filter { cat ->
+                taskVM1.categoryId == cat.id
             }
-            var indexInArray = dailyTimes.indexOf(selected[0])
+            var indexInArray = dailyTimeDBMS.indexOf(selected[0])
             sCategory.setSelection(indexInArray)
         }
     }
 
-    fun setCar(carModel: CarModel?){
+    fun setCar(taskVM: TaskVM?){
         hideEtCatAndBtns()
-        carModel?.let {
-            this.carModel = it
+        taskVM?.let {
+            this.taskVM = it
             etModel.setText(it.model)
             etPrice.setText(it.price)
             sState.setSelection(
@@ -214,9 +214,9 @@ class EditCreateCarView @JvmOverloads constructor(
 
     interface UserActions{
 
-        fun saveItem(carModel: CarModel)
+        fun saveItem(taskVM: TaskVM)
 
-        fun saveCategory(dailyTime: DailyTime)
+        fun saveCategory(dailyTimeDBM: DailyTimeDBM)
 
     }
 }

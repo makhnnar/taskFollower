@@ -1,13 +1,13 @@
 package com.pedrogomez.taskfollower.domian.mapper
 
-import com.pedrogomez.taskfollower.domian.db.Activity
-import com.pedrogomez.taskfollower.domian.db.SessionTime
-import com.pedrogomez.taskfollower.domian.view.CarModel
+import com.pedrogomez.taskfollower.domian.db.TaskDBM
+import com.pedrogomez.taskfollower.domian.db.SessionTimeDBM
+import com.pedrogomez.taskfollower.domian.view.TaskVM
 
-interface MapperContract {
+interface MapperContract<VM,DB> {
 
-    fun getCarAsModelForDB(carModel: CarModel) : Activity
+    fun fromVMtoDB(vm: VM) : DB
 
-    fun getValueAsModelForDB(carModel: CarModel) : SessionTime?
+    fun fromDBtoVM(db: DB) : VM
 
 }

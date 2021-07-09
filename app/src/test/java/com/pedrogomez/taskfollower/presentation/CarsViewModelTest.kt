@@ -16,13 +16,13 @@ import org.junit.Assert.*
 @RunWith(AndroidJUnit4::class)
 class CarsViewModelTest {
 
-    lateinit var SUT: CarsViewModel
+    lateinit var SUT: TaskViewModel
 
     var repositoryContractTD = RepositoryContractTD()
 
     @Before
     fun setUp() {
-        SUT = CarsViewModel(
+        SUT = TaskViewModel(
             repositoryContractTD
         )
     }
@@ -50,7 +50,7 @@ class CarsViewModelTest {
     @Test
     fun addCarToDB(){
         runBlocking {
-            SUT.addCar(DataHelper.carView)
+            SUT.addTask(DataHelper.carView)
             assertEquals(
                 repositoryContractTD.carModel,
                 DataHelper.carView
@@ -72,7 +72,7 @@ class CarsViewModelTest {
     @Test
     fun updateCarInDB(){
         runBlocking {
-            SUT.updateCar(DataHelper.carView)
+            SUT.updateTask(DataHelper.carView)
             assertEquals(
                 repositoryContractTD.carModel,
                 DataHelper.carView
@@ -136,17 +136,17 @@ class CarsViewModelTest {
 
         var callUpdateCar = false
 
-        override suspend fun addCar(carModel: CarModel) {
+        override suspend fun addTask(carModel: CarModel) {
             callAddCar = true
             this.carModel = carModel
         }
 
-        override suspend fun updateCar(carModel: CarModel) {
+        override suspend fun updateTask(carModel: CarModel) {
             callUpdateCar = true
             this.carModel = carModel
         }
 
-        override fun getCars(): LiveData<List<CarModel>> {
+        override fun tasks(): LiveData<List<CarModel>> {
             return DataHelper.carsListLD
         }
 

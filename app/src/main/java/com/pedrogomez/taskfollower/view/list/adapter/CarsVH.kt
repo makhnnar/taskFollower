@@ -8,7 +8,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.pedrogomez.taskfollower.R
 import com.pedrogomez.taskfollower.databinding.ViewHolderItemBinding
-import com.pedrogomez.taskfollower.domian.view.CarModel
+import com.pedrogomez.taskfollower.domian.view.TaskVM
 import com.pedrogomez.taskfollower.view.list.ListCarsView
 
 class CarsVH(
@@ -26,7 +26,7 @@ class CarsVH(
 
     private var binding: ViewHolderItemBinding? = null
 
-    private var data: CarModel? = null
+    private var data: TaskVM? = null
 
     private var model : AppCompatTextView? = null
 
@@ -46,7 +46,7 @@ class CarsVH(
     }
 
     fun setData(
-            item: CarModel?,
+            item: TaskVM?,
             itemListActions: ListCarsView.ItemListActions?
     ) {
         item?.let {

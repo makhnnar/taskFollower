@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.pedrogomez.taskfollower.databinding.ViewListBinding
-import com.pedrogomez.taskfollower.domian.view.CarModel
+import com.pedrogomez.taskfollower.domian.view.TaskVM
 import com.pedrogomez.taskfollower.view.list.adapter.CarsAdapter
 import com.pedrogomez.taskfollower.view.list.adapter.ScrollHelper
 
@@ -59,7 +59,7 @@ class ListCarsView @JvmOverloads constructor(
         }
     }
 
-    fun setData(items: List<CarModel>){
+    fun setData(items: List<TaskVM>){
         initRecyclerView()
         cAdapter.submitList(items)
     }
@@ -90,7 +90,7 @@ class ListCarsView @JvmOverloads constructor(
 
     interface ItemListActions{
 
-        fun goToDetail(carModel:CarModel)
+        fun goToDetail(taskVM:TaskVM)
 
     }
 

@@ -1,12 +1,12 @@
 package com.pedrogomez.taskfollower.proxies
 
-import com.pedrogomez.taskfollower.domian.view.CarModel
+import com.pedrogomez.taskfollower.domian.view.TaskVM
 
 //not implemented. was dessingned for carmodel fields validation
 class ValueProxy : ValueContract {
 
     override fun checkFields(
-            carFromView: CarModel,
+            carFromView: TaskVM,
             valueActions: ValueActions
     ) {
         if(carFromView.valueName?.isEmpty() == true){

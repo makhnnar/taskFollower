@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "daily_time")
-data class DailyTime(
+data class DailyTimeDBM(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     val id:Long,

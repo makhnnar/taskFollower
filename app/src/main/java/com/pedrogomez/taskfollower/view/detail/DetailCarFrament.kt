@@ -9,15 +9,15 @@ import androidx.navigation.fragment.findNavController
 import com.pedrogomez.taskfollower.R
 import com.pedrogomez.taskfollower.base.FragmentBase
 import com.pedrogomez.taskfollower.databinding.FragmentDetailBinding
-import com.pedrogomez.taskfollower.domian.view.CarModel
-import com.pedrogomez.taskfollower.presentation.CarsViewModel
+import com.pedrogomez.taskfollower.domian.view.TaskVM
+import com.pedrogomez.taskfollower.presentation.TaskViewModel
 import org.koin.android.viewmodel.ext.android.getViewModel
 
 class DetailCarFrament : FragmentBase(),
     DetailCarView.UserActions{
 
     private val carsViewModel by lazy {
-        requireParentFragment().getViewModel<CarsViewModel>()
+        requireParentFragment().getViewModel<TaskViewModel>()
     }
 
     private lateinit var binding: FragmentDetailBinding
@@ -51,8 +51,8 @@ class DetailCarFrament : FragmentBase(),
         )
     }
 
-    override fun editItem(carModel: CarModel) {
-        carsViewModel.setCarToEdit(carModel)
+    override fun editItem(taskVM: TaskVM) {
+        carsViewModel.setCarToEdit(taskVM)
         findNavController().navigate(R.id.action_detailFragment_to_editCreateFragment)
     }
 

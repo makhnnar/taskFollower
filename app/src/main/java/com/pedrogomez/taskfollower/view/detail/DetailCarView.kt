@@ -8,7 +8,7 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.pedrogomez.taskfollower.databinding.ViewDetailBinding
-import com.pedrogomez.taskfollower.domian.view.CarModel
+import com.pedrogomez.taskfollower.domian.view.TaskVM
 
 class DetailCarView @JvmOverloads constructor(
     context: Context,
@@ -38,7 +38,7 @@ class DetailCarView @JvmOverloads constructor(
 
     var btnEdit : FloatingActionButton? = null
 
-    private var carModel: CarModel? = null
+    private var taskVM: TaskVM? = null
 
     var userActions : UserActions? = null
 
@@ -56,23 +56,23 @@ class DetailCarView @JvmOverloads constructor(
         lbCatValue = binding.lbCategoryValue
         btnEdit = binding.btnEdit
         btnEdit?.setOnClickListener {
-            carModel?.let { carModel ->
+            taskVM?.let { carModel ->
                 userActions?.editItem(carModel)
             }
         }
     }
 
-    fun setData(carModel: CarModel){
-        this.carModel = carModel
-        tvModel?.text = carModel.model
-        tvPrice?.text = carModel.price
-        tvState?.text = getState(carModel.isNew?:false)
-        tvSeats?.text = carModel.cantSeats
-        tvDate?.text = carModel.dateRelease
-        tvCategory?.text = carModel.categoryName
-        if(carModel.valueName!=null){
-            lbCatValue?.text = carModel.valueName
-            tvCatValue?.text = carModel.valueQuantity
+    fun setData(taskVM: TaskVM){
+        this.taskVM = taskVM
+        tvModel?.text = taskVM.model
+        tvPrice?.text = taskVM.price
+        tvState?.text = getState(taskVM.isNew?:false)
+        tvSeats?.text = taskVM.cantSeats
+        tvDate?.text = taskVM.dateRelease
+        tvCategory?.text = taskVM.categoryName
+        if(taskVM.valueName!=null){
+            lbCatValue?.text = taskVM.valueName
+            tvCatValue?.text = taskVM.valueQuantity
         }else{
             lbCatValue?.visibility = View.GONE
             tvCatValue?.visibility = View.GONE
@@ -86,7 +86,7 @@ class DetailCarView @JvmOverloads constructor(
 
     interface UserActions{
 
-        fun editItem(carModel: CarModel)
+        fun editItem(taskVM: TaskVM)
 
     }
 

@@ -1,10 +1,10 @@
 package com.pedrogomez.taskfollower.proxies
 
-import com.pedrogomez.taskfollower.domian.view.CarModel
+import com.pedrogomez.taskfollower.domian.view.TaskVM
 
 interface ValueActions {
 
-    fun onAcceptValidation(carFromView: CarModel)
+    fun onAcceptValidation(carFromView: TaskVM)
 
     fun onDeniedValidation(msg:String)
 

@@ -9,16 +9,16 @@ import androidx.navigation.fragment.findNavController
 import com.pedrogomez.taskfollower.R
 import com.pedrogomez.taskfollower.base.FragmentBase
 import com.pedrogomez.taskfollower.databinding.FragmentEditCreateBinding
-import com.pedrogomez.taskfollower.domian.db.DailyTime
-import com.pedrogomez.taskfollower.domian.view.CarModel
-import com.pedrogomez.taskfollower.presentation.CarsViewModel
+import com.pedrogomez.taskfollower.domian.db.DailyTimeDBM
+import com.pedrogomez.taskfollower.domian.view.TaskVM
+import com.pedrogomez.taskfollower.presentation.TaskViewModel
 import org.koin.android.viewmodel.ext.android.getViewModel
 
 class EditCreateCarFragment : FragmentBase(),
     EditCreateCarView.UserActions{
 
     private val carsViewModel by lazy {
-        requireParentFragment().getViewModel<CarsViewModel>()
+        requireParentFragment().getViewModel<TaskViewModel>()
     }
 
     private lateinit var binding: FragmentEditCreateBinding
@@ -58,15 +58,15 @@ class EditCreateCarFragment : FragmentBase(),
         )
     }
 
-    override fun saveItem(carModel: CarModel) {
+    override fun saveItem(taskVM: TaskVM) {
         hideKeyboard(binding.editCreateView)
-        carsViewModel.saveCar(carModel)
+        carsViewModel.saveCar(taskVM)
         findNavController().navigate(R.id.action_createEditFragment_to_listFragment)
     }
 
-    override fun saveCategory(dailyTime: DailyTime) {
+    override fun saveCategory(dailyTimeDBM: DailyTimeDBM) {
         hideKeyboard(binding.editCreateView)
-        carsViewModel.addCategory(dailyTime)
+        carsViewModel.addCategory(dailyTimeDBM)
     }
 
 }
