@@ -33,7 +33,7 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.pedrogomez.taskfollower.view.list.ListCarsFragment"
+        android:name="com.pedrogomez.taskfollower.view.list.ListTasksFragment"
         android:label="fragment_productos_list"
         tools:layout="@layout/fragment_list" >
         <action

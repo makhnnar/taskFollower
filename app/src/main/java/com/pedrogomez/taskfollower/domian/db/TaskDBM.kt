@@ -12,7 +12,7 @@ data class TaskDBM(
     @ColumnInfo(name = "name")
     var name:String,
     @ColumnInfo(name = "assigned_time")
-    var price:Int,
+    var assignedTime:Int,
     @ColumnInfo(name = "is_progress")
     var isProgress:Boolean,
     @ColumnInfo(name = "is_running")

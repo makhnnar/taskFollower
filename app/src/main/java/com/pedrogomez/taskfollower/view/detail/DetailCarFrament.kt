@@ -43,16 +43,16 @@ class DetailCarFrament : FragmentBase(),
     }
 
     private fun initObservers(){
-        carsViewModel.getCarToView().observe(
+        /*carsViewModel.getCarToView().observe(
                 viewLifecycleOwner,
                 Observer {
                     binding.detailView.setData(it)
                 }
-        )
+        )*/
     }
 
     override fun editItem(taskVM: TaskVM) {
-        carsViewModel.setCarToEdit(taskVM)
+        //carsViewModel.setCarToEdit(taskVM)
         findNavController().navigate(R.id.action_detailFragment_to_editCreateFragment)
     }
 

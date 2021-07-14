@@ -64,8 +64,8 @@ class DetailCarView @JvmOverloads constructor(
 
     fun setData(taskVM: TaskVM){
         this.taskVM = taskVM
-        tvModel?.text = taskVM.model
-        tvPrice?.text = taskVM.price
+        /*tvModel?.text = taskVM.model
+        tvPrice?.text = taskVM.assignedTime
         tvState?.text = getState(taskVM.isNew?:false)
         tvSeats?.text = taskVM.cantSeats
         tvDate?.text = taskVM.dateRelease
@@ -76,7 +76,7 @@ class DetailCarView @JvmOverloads constructor(
         }else{
             lbCatValue?.visibility = View.GONE
             tvCatValue?.visibility = View.GONE
-        }
+        }*/
 
     }
 

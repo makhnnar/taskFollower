@@ -76,15 +76,15 @@ class EditCreateCarView @JvmOverloads constructor(
         btnSaveCategory = binding.btnAddCat
         btnCancelCategory = binding.btnDiscardCat
         btnSaveCar.setOnClickListener {
-            saveItem()
+            //saveItem()
         }
         btnSaveCategory.setOnClickListener {
-            saveCategory()
-            hideEtCatAndBtns()
+            //saveCategory()
+            //hideEtCatAndBtns()
             sCategory.visibility = View.VISIBLE
         }
         btnCancelCategory.setOnClickListener {
-            hideEtCatAndBtns()
+            //hideEtCatAndBtns()
             sCategory.visibility = View.VISIBLE
         }
         sCategory.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
@@ -95,7 +95,7 @@ class EditCreateCarView @JvmOverloads constructor(
                     id: Long
             ) {
                 if(position<categories.size){
-                    lbCatValue.text = "${categories[position].value}"
+                    //lbCatValue.text = "${categories[position].value}"
                 }else{
                     sCategory.visibility = View.GONE
                     showAddCategory()
@@ -124,7 +124,7 @@ class EditCreateCarView @JvmOverloads constructor(
         etCategory.visibility = View.VISIBLE
     }
 
-    private fun saveCategory() {
+    /*private fun saveCategory() {
         var category = DailyTimeDBM(
                 0,
                 etCategory.text.toString(),
@@ -198,7 +198,7 @@ class EditCreateCarView @JvmOverloads constructor(
         taskVM?.let {
             this.taskVM = it
             etModel.setText(it.model)
-            etPrice.setText(it.price)
+            etPrice.setText(it.assignedTime)
             sState.setSelection(
                     getState(it.isNew ?: false)
             )
@@ -210,7 +210,7 @@ class EditCreateCarView @JvmOverloads constructor(
 
     private fun getState(isNew: Boolean):Int{
         return if(isNew) 0 else 1
-    }
+    }*/
 
     interface UserActions{
 

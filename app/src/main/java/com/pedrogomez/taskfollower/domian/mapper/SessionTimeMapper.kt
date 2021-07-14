@@ -10,7 +10,7 @@ class SessionTimeMapper : MapperContract<SessionTimeVM, SessionTimeDBM> {
         TODO("Not yet implemented")
     }
 
-    override fun fromDBtoVM(db: SessionTimeDBM): SessionTimeVM? {
+    override fun fromDBtoVM(db: SessionTimeDBM): SessionTimeVM {
         TODO("Not yet implemented")
     }
 }

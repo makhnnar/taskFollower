@@ -13,7 +13,7 @@ import com.pedrogomez.taskfollower.domian.view.TaskVM
 import com.pedrogomez.taskfollower.presentation.TaskViewModel
 import org.koin.android.viewmodel.ext.android.getViewModel
 
-class ListCarsFragment : FragmentBase(),
+class ListTasksFragment : FragmentBase(),
     ListCarsView.UserActions,
     ListCarsView.ItemListActions{
 
@@ -46,7 +46,7 @@ class ListCarsFragment : FragmentBase(),
     }
 
     private fun initObservers(){
-        carsViewModel.carsList.observe(
+        carsViewModel.task().observe(
             viewLifecycleOwner,
             Observer {
                 if(it.isNotEmpty()){
@@ -58,12 +58,10 @@ class ListCarsFragment : FragmentBase(),
     }
 
     override fun addNewItem() {
-        carsViewModel.setCarToEdit(null)
         findNavController().navigate(R.id.action_listFragment_to_editCreateFragment)
     }
 
     override fun goToDetail(taskVM: TaskVM) {
-        carsViewModel.setCarToView(taskVM)
         findNavController().navigate(R.id.action_listFragment_to_detailFragment)
     }
 

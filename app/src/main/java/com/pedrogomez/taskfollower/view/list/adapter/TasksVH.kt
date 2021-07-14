@@ -11,7 +11,7 @@ import com.pedrogomez.taskfollower.databinding.ViewHolderItemBinding
 import com.pedrogomez.taskfollower.domian.view.TaskVM
 import com.pedrogomez.taskfollower.view.list.ListCarsView
 
-class CarsVH(
+class TasksVH(
     inflater: LayoutInflater,
     parent: ViewGroup
 ) : RecyclerView.ViewHolder(
@@ -50,9 +50,9 @@ class CarsVH(
             itemListActions: ListCarsView.ItemListActions?
     ) {
         item?.let {
-            model?.text = it.model
-            price?.text = it.price
-            category?.text = it.categoryName
+            model?.text = it.name
+            price?.text = "${it.position}"
+            category?.text = "${it.assignedTime}"
         }
         clBgCard?.setOnClickListener {
             item?.let{

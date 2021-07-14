@@ -9,7 +9,7 @@ class ValueProxy : ValueContract {
             carFromView: TaskVM,
             valueActions: ValueActions
     ) {
-        if(carFromView.valueName?.isEmpty() == true){
+        /*if(carFromView.valueName?.isEmpty() == true){
             valueActions.onDeniedValidation("")
             return
         }
@@ -24,7 +24,7 @@ class ValueProxy : ValueContract {
         if(carFromView.model?.isEmpty() == true){
             valueActions.onDeniedValidation("")
             return
-        }
+        }*/
         valueActions.onAcceptValidation(carFromView)
     }
 

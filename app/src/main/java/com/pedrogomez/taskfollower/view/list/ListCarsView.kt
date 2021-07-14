@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.pedrogomez.taskfollower.databinding.ViewListBinding
 import com.pedrogomez.taskfollower.domian.view.TaskVM
-import com.pedrogomez.taskfollower.view.list.adapter.CarsAdapter
+import com.pedrogomez.taskfollower.view.list.adapter.TasksAdapter
 import com.pedrogomez.taskfollower.view.list.adapter.ScrollHelper
 
 class ListCarsView @JvmOverloads constructor(
@@ -39,7 +39,7 @@ class ListCarsView @JvmOverloads constructor(
 
     private lateinit var scrollHelper: ScrollHelper
 
-    private lateinit var cAdapter : CarsAdapter
+    private lateinit var cAdapter : TasksAdapter
 
     private lateinit var lManager : LinearLayoutManager
 
@@ -65,7 +65,7 @@ class ListCarsView @JvmOverloads constructor(
     }
 
     private fun initRecyclerView() {
-        cAdapter = CarsAdapter(
+        cAdapter = TasksAdapter(
                 itemListActions
         )
         lManager = LinearLayoutManager(context)

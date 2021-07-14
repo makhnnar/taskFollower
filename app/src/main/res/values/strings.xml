@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Cars Store</string>
+    <string name="app_name">Task Follower</string>
     <string name="model">Model</string>
     <string name="price">Price</string>
     <string name="category">Category</string>

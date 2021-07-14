@@ -6,26 +6,26 @@ import androidx.recyclerview.widget.ListAdapter
 import com.pedrogomez.taskfollower.domian.view.TaskVM
 import com.pedrogomez.taskfollower.view.list.ListCarsView
 
-class CarsAdapter(
+class TasksAdapter(
         private var listener:ListCarsView.ItemListActions?
-) : ListAdapter<TaskVM, CarsVH>(CarsDC()) {
+) : ListAdapter<TaskVM, TasksVH>(TasksDC()) {
 
     override fun onCreateViewHolder(
             parent: ViewGroup,
             viewType: Int
-    ): CarsVH {
+    ): TasksVH {
         val inflater = LayoutInflater.from(
             parent.context
         )
-        return CarsVH(
+        return TasksVH(
             inflater,
             parent
         )
     }
 
     override fun onBindViewHolder(
-            holder: CarsVH,
-            position: Int
+        holder: TasksVH,
+        position: Int
     ) {
         val item = getItem(position)
         holder.setData(

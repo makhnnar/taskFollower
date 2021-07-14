@@ -44,7 +44,7 @@ class EditCreateCarFragment : FragmentBase(),
     }
 
     private fun initObservers(){
-        carsViewModel.getCarToEdit().observe(
+        /*carsViewModel.getCarToEdit().observe(
                 viewLifecycleOwner,
                 Observer {
                     binding.editCreateView.setCar(it)
@@ -55,7 +55,7 @@ class EditCreateCarFragment : FragmentBase(),
                 Observer {
                     binding.editCreateView.setCategories(it)
                 }
-        )
+        )*/
     }
 
     override fun saveItem(taskVM: TaskVM) {
@@ -66,7 +66,7 @@ class EditCreateCarFragment : FragmentBase(),
 
     override fun saveCategory(dailyTimeDBM: DailyTimeDBM) {
         hideKeyboard(binding.editCreateView)
-        carsViewModel.addCategory(dailyTimeDBM)
+        //carsViewModel.addCategory(dailyTimeDBM)
     }
 
 }

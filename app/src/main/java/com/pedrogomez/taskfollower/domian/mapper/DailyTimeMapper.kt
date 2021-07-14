@@ -8,7 +8,7 @@ class DailyTimeMapper : MapperContract<DailyTimeVM,DailyTimeDBM> {
         TODO("Not yet implemented")
     }
 
-    override fun fromDBtoVM(db: DailyTimeDBM): DailyTimeVM? {
+    override fun fromDBtoVM(db: DailyTimeDBM): DailyTimeVM {
         TODO("Not yet implemented")
     }
 }

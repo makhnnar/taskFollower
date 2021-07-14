@@ -27,7 +27,7 @@ class TaskModelMapper : MapperContract<TaskVM,TaskDBM> {
         )
     }
 
-    override fun fromDBtoVM(db: TaskDBM): TaskVM? {
+    override fun fromDBtoVM(db: TaskDBM): TaskVM {
         val (
                 id,
                 name,
