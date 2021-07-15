@@ -53,7 +53,7 @@ class DetailCarFrament : FragmentBase(),
 
     override fun editItem(taskVM: TaskVM) {
         //carsViewModel.setCarToEdit(taskVM)
-        findNavController().navigate(R.id.action_detailFragment_to_editCreateFragment)
+        //findNavController().navigate(R.id.action_detailFragment_to_editCreateFragment)
     }
 
 }
