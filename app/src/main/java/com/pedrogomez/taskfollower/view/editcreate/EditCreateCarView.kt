@@ -6,12 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.ImageView
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.appcompat.widget.AppCompatSpinner
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import com.pedrogomez.taskfollower.R
 import com.pedrogomez.taskfollower.databinding.ViewEditCreateBinding
 import com.pedrogomez.taskfollower.domian.db.DailyTimeDBM
@@ -29,29 +32,17 @@ class EditCreateCarView @JvmOverloads constructor(
             this
     )
 
-    private var etModel : AppCompatEditText
+    private var etModel : TextInputEditText
 
-    private var etPrice : AppCompatEditText
+    private var etPrice : TextInputEditText
 
-    private var sState : AppCompatSpinner
+    private var sCategory : TextInputLayout
 
-    private var etSeats : AppCompatEditText
+    private var sPinner : AutoCompleteTextView
 
-    private var etDate : AppCompatEditText
+    private var btnSave : ImageView
 
-    private var sCategory : AppCompatSpinner
-
-    private var etCategory : AppCompatEditText
-
-    private var etCatValue : AppCompatEditText
-
-    private var lbCatValue : AppCompatTextView
-
-    private var btnSaveCar : FloatingActionButton
-
-    private var btnSaveCategory : ImageView
-
-    private var btnCancelCategory : ImageView
+    private var btnCancel : ImageView
 
     private var taskVM: TaskVM? = null
 
@@ -65,29 +56,17 @@ class EditCreateCarView @JvmOverloads constructor(
         }
         etModel = binding.etModel
         etPrice = binding.etPrice
-        sState = binding.sState
-        etSeats = binding.etSeats
-        etDate = binding.etRelease
         sCategory = binding.sCategory
-        etCategory = binding.etCategory
-        etCatValue = binding.tvCategoryValue
-        lbCatValue = binding.lbCategoryValue
-        btnSaveCar = binding.btnDone
-        btnSaveCategory = binding.btnAddCat
-        btnCancelCategory = binding.btnDiscardCat
-        btnSaveCar.setOnClickListener {
-            //saveItem()
+        sPinner = binding.mySpinnerDropdown
+        btnSave =  binding.btnAdd
+        btnCancel =  binding.btnDiscard
+        btnSave.setOnClickListener {
+
         }
-        btnSaveCategory.setOnClickListener {
-            //saveCategory()
-            //hideEtCatAndBtns()
-            sCategory.visibility = View.VISIBLE
+        btnCancel.setOnClickListener {
+
         }
-        btnCancelCategory.setOnClickListener {
-            //hideEtCatAndBtns()
-            sCategory.visibility = View.VISIBLE
-        }
-        sCategory.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+        sPinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
 
             override fun onItemSelected(
                     parent: AdapterView<*>?,
@@ -98,7 +77,6 @@ class EditCreateCarView @JvmOverloads constructor(
                     //lbCatValue.text = "${categories[position].value}"
                 }else{
                     sCategory.visibility = View.GONE
-                    showAddCategory()
                 }
             }
 
@@ -115,102 +93,8 @@ class EditCreateCarView @JvmOverloads constructor(
                 R.layout.simple_spinner_item,
                 array.toList()
         )
-        sState.adapter = dataAdapter
+        //sPinner.adapter = dataAdapter
     }
-
-    private fun showAddCategory() {
-        btnSaveCategory.visibility = View.VISIBLE
-        btnCancelCategory.visibility = View.VISIBLE
-        etCategory.visibility = View.VISIBLE
-    }
-
-    /*private fun saveCategory() {
-        var category = DailyTimeDBM(
-                0,
-                etCategory.text.toString(),
-                ""
-        )
-        userActions?.saveCategory(category)
-    }
-
-    private fun hideEtCatAndBtns() {
-        btnSaveCategory.visibility = View.GONE
-        btnCancelCategory.visibility = View.GONE
-        etCategory.visibility = View.GONE
-    }
-
-    private fun saveItem() {
-        val category = categories[sCategory?.selectedItemPosition ?: 0]
-        taskVM = TaskVM(
-                taskVM?.id?:0,
-                etSeats.text.toString(),
-                etPrice.text.toString(),
-                sState.selectedItemPosition == 0,
-                etModel.text.toString(),
-                etDate.text.toString(),
-                category.id,
-                category.name,
-                category.value,
-                taskVM?.valueQuantityId?:0,
-                etCatValue.text.toString(),
-                ""
-        )
-        taskVM?.let {
-            userActions?.saveItem(it)
-        }
-    }
-
-    fun setCategories(dailyTimeDBMS: List<DailyTimeDBM>){
-        this.categories.clear()
-        this.categories.addAll(dailyTimeDBMS)
-        val listTitle : MutableList<String> = dailyTimeDBMS.map {
-            it.name
-        }.toMutableList()
-        listTitle.add("Add Category")
-        val dataAdapter: ArrayAdapter<*> = ArrayAdapter<Any?>(
-                this.context,
-                R.layout.simple_spinner_item,
-                listTitle.toList()
-        )
-        sCategory.adapter = dataAdapter
-        taskVM?.let {
-            setPositionCategory(it, dailyTimeDBMS)
-        }
-    }
-
-    private fun setPositionCategory(
-            taskVM1: TaskVM,
-            dailyTimeDBMS: List<DailyTimeDBM>
-    ) {
-        if(dailyTimeDBMS.isNotEmpty()){
-            lbCatValue.text = taskVM1.valueName?:""
-            etCatValue.setText(taskVM1.valueQuantity)
-            val selected = dailyTimeDBMS.filter { cat ->
-                taskVM1.categoryId == cat.id
-            }
-            var indexInArray = dailyTimeDBMS.indexOf(selected[0])
-            sCategory.setSelection(indexInArray)
-        }
-    }
-
-    fun setCar(taskVM: TaskVM?){
-        hideEtCatAndBtns()
-        taskVM?.let {
-            this.taskVM = it
-            etModel.setText(it.model)
-            etPrice.setText(it.assignedTime)
-            sState.setSelection(
-                    getState(it.isNew ?: false)
-            )
-            etSeats.setText(it.cantSeats)
-            etDate.setText(it.dateRelease)
-            setPositionCategory(it, categories)
-        }
-    }
-
-    private fun getState(isNew: Boolean):Int{
-        return if(isNew) 0 else 1
-    }*/
 
     interface UserActions{
 

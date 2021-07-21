@@ -58,11 +58,15 @@ class ListTasksFragment : FragmentBase(),
     }
 
     override fun addNewItem() {
-        findNavController().navigate(R.id.action_listFragment_to_editCreateTaskDialog)
+        findNavController().navigate(
+            R.id.action_listFragment_to_editCreateTaskDialog
+        )
     }
 
     override fun goToDetail(taskVM: TaskVM) {
-        findNavController().navigate(R.id.action_listFragment_to_detailFragment)
+        findNavController().navigate(
+            R.id.action_listFragment_to_editCreateTaskDialog
+        )
     }
 
 }

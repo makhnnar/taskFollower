@@ -3,8 +3,8 @@
     <string name="model">Model</string>
     <string name="price">Price</string>
     <string name="category">Category</string>
-    <string name="dummy_model">mfl001</string>
-    <string name="dummy_price">$12456</string>
+    <string name="dummy_model">Task Name</string>
+    <string name="dummy_price">40 min</string>
     <string name="dummy_category">some category</string>
     <string name="seats">Seats</string>
     <string name="state">State</string>
@@ -15,6 +15,8 @@
     <string name="category_value">Category Value</string>
     <string name="dummy_category_value">1020 GHz</string>
     <string name="there_is_no_elements_to_show_please_add_some">There are no elements to show. Please add some</string>
+    <string name="is_a_progress_clock">Is a progress clock?</string>
+    <string name="assigned_time">Assigned Time</string>
     <string-array name="state_car">
         <item>New</item>
         <item>Used</item>

@@ -9,6 +9,7 @@ import android.view.Window
 import android.widget.Button
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.pedrogomez.taskfollower.R
 import com.pedrogomez.taskfollower.databinding.FragmentEditCreateBinding
 import com.pedrogomez.taskfollower.domian.db.DailyTimeDBM
@@ -16,7 +17,7 @@ import com.pedrogomez.taskfollower.domian.view.TaskVM
 import com.pedrogomez.taskfollower.presentation.TaskViewModel
 import org.koin.android.viewmodel.ext.android.getViewModel
 
-class EditCreateTaskDialog : DialogFragment(),
+class EditCreateTaskDialog : BottomSheetDialogFragment(),
     EditCreateCarView.UserActions{
 
     private val carsViewModel by lazy {
