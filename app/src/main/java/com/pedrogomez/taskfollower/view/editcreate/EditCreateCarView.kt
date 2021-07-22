@@ -2,6 +2,7 @@ package com.pedrogomez.taskfollower.view.editcreate
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.AdapterView
@@ -27,6 +28,8 @@ class EditCreateCarView @JvmOverloads constructor(
         defStyle: Int = 0
 ) : ConstraintLayout(context, attrs, defStyle){
 
+    val TAG = EditCreateCarView::class.simpleName
+
     var binding : ViewEditCreateBinding = ViewEditCreateBinding.inflate(
             LayoutInflater.from(context),
             this
@@ -50,6 +53,10 @@ class EditCreateCarView @JvmOverloads constructor(
 
     var userActions : UserActions? = null
 
+    val array : Array<String> = resources.getStringArray(
+        R.array.state_car
+    )
+
     init{
         attrs.let {
 
@@ -66,34 +73,22 @@ class EditCreateCarView @JvmOverloads constructor(
         btnCancel.setOnClickListener {
 
         }
-        sPinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-
-            override fun onItemSelected(
-                    parent: AdapterView<*>?,
-                    view: View?, position: Int,
-                    id: Long
-            ) {
-                if(position<categories.size){
-                    //lbCatValue.text = "${categories[position].value}"
-                }else{
-                    sCategory.visibility = View.GONE
-                }
-            }
-
-            override fun onNothingSelected(
-                    parent: AdapterView<*>?
-            ) {
-
-            }
-
+        sPinner.onItemClickListener = AdapterView.OnItemClickListener { parent, arg1, position, id ->
+            Log.i(TAG, "onItemSelected: ${array[position]}")
+            sPinner.setText(
+                array[position]
+            )
         }
-        val array : Array<String> = resources.getStringArray(R.array.state_car)
-        val dataAdapter: ArrayAdapter<*> = ArrayAdapter<Any?>(
-                this.context,
-                R.layout.simple_spinner_item,
-                array.toList()
-        )
-        //sPinner.adapter = dataAdapter
+
+        context?.let {
+            sPinner.setAdapter(
+                SpinnerListAdapter(
+                    it,
+                    R.layout.simple_spinner_item,
+                    array
+                )
+            )
+        }
     }
 
     interface UserActions{

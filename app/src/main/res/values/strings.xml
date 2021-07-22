@@ -18,7 +18,10 @@
     <string name="is_a_progress_clock">Is a progress clock?</string>
     <string name="assigned_time">Assigned Time</string>
     <string-array name="state_car">
-        <item>New</item>
-        <item>Used</item>
+        <item>Sleeping</item>
+        <item>Working</item>
+        <item>Eating</item>
+        <item>Gaming</item>
+        <item>Reading</item>
     </string-array>
 </resources>

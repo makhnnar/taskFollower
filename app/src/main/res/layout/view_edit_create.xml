@@ -48,6 +48,7 @@
         android:layout_height="40dp"
         android:hint="@string/dummy_model"
         android:textColor="@color/black"
+        android:textColorHint="@color/blackOverlay"
         android:fontFamily="@font/montserrat_regular"
         android:maxLines="1"
         android:gravity="center"
@@ -67,6 +68,7 @@
         android:layout_height="40dp"
         android:hint="@string/dummy_price"
         android:textColor="@color/black"
+        android:textColorHint="@color/blackOverlay"
         android:fontFamily="@font/montserrat_regular"
         android:maxLines="1"
         android:gravity="center"
@@ -83,8 +85,9 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/sCategory"
+        style="@style/customDropDownTilStyle"
         android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:layout_margin="8dp"
         app:layout_constraintBottom_toTopOf="@id/gdV1"
         app:layout_constraintEnd_toStartOf="@id/gdH33"
         app:layout_constraintStart_toStartOf="parent"
@@ -97,12 +100,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="14sp"
+            android:textColor="@color/black"
+            android:hint="Icon"
+            android:gravity="center"
             app:autoSizeMaxTextSize="16sp"
             app:autoSizeMinTextSize="12sp"
             app:autoSizeTextType="uniform"
             app:autoSizeStepGranularity="1sp"
             android:fontFamily="@font/montserrat_regular"
             android:maxLines="1"
+            android:focusable="false"
+            android:inputType="none"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -129,8 +137,9 @@
 
     <com.google.android.material.checkbox.MaterialCheckBox
         android:id="@+id/checkCounter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        style="@style/myCheckBoxTheme"
         app:layout_constraintTop_toBottomOf="@id/gdV2"
         app:layout_constraintEnd_toStartOf="@id/gdH33"
         app:layout_constraintBottom_toTopOf="@+id/gdV3"
