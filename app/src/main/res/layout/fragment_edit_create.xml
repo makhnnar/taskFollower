@@ -6,7 +6,7 @@
     android:layout_gravity="center"
     android:background="@color/white">
 
-    <com.pedrogomez.taskfollower.view.editcreate.EditCreateCarView
+    <com.pedrogomez.taskfollower.view.editcreate.view.EditCreateView
         android:id="@+id/editCreateView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

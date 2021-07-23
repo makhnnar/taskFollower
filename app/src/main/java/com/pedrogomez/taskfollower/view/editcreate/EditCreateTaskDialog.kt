@@ -1,39 +1,26 @@
 package com.pedrogomez.taskfollower.view.editcreate
 
-import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.Window
-import android.widget.Button
 import androidx.fragment.app.DialogFragment
-import androidx.navigation.fragment.findNavController
+import androidx.lifecycle.Observer
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.pedrogomez.taskfollower.R
 import com.pedrogomez.taskfollower.databinding.FragmentEditCreateBinding
-import com.pedrogomez.taskfollower.domian.db.DailyTimeDBM
-import com.pedrogomez.taskfollower.domian.view.TaskVM
 import com.pedrogomez.taskfollower.presentation.TaskViewModel
+import com.pedrogomez.taskfollower.view.editcreate.view.EditCreateView
 import org.koin.android.viewmodel.ext.android.getViewModel
 
 class EditCreateTaskDialog : BottomSheetDialogFragment(),
-    EditCreateCarView.UserActions{
+    EditCreateView.UserActions{
 
-    private val carsViewModel by lazy {
+    private val taskViewModel by lazy {
         requireParentFragment().getViewModel<TaskViewModel>()
     }
 
-    protected var listener: InvitationListener? = null
-
-    companion object {
-
-        fun newInstance(listener: InvitationListener): EditCreateTaskDialog {
-            val dialogFragment = EditCreateTaskDialog()
-            dialogFragment.listener = listener
-            return dialogFragment
-        }
-    }
+    private var editView : EditCreateView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,32 +28,58 @@ class EditCreateTaskDialog : BottomSheetDialogFragment(),
             DialogFragment.STYLE_NORMAL,
             R.style.SelectSectionDialogTheme
         )
-
     }
 
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val dialog = super.onCreateDialog(savedInstanceState)
-        dialog.window?.requestFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(R.layout.fragment_edit_create)
-
-        //decline_terms = dialog.findViewById(R.id.btn_close)
-
-        return dialog
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val binding = FragmentEditCreateBinding.inflate(
+            inflater,
+            container,
+            false
+        )
+        editView = binding.editCreateView
+        editView?.userActions = this
+        return binding.root
     }
 
-    interface InvitationListener{
-
-        fun goToSignupView()
-        fun goBack()
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        taskViewModel.taskFormState.observe(
+            this@EditCreateTaskDialog,
+            Observer {
+                if(!it.isDataValid){
+                    editView?.setErrors(
+                        it.nameError,
+                        it.timeError
+                    )
+                }else{
+                    this@EditCreateTaskDialog.dismiss()
+                }
+            }
+        )
     }
 
-    override fun saveItem(taskVM: TaskVM) {
-
+    override fun saveItem(
+        name:String?,
+        assignedTime:String?,
+        isProgress:Boolean
+    ) {
+        taskViewModel.taskDataChanged(
+            name,
+            assignedTime,
+            isProgress
+        )
     }
 
-    override fun saveCategory(dailyTimeDBM: DailyTimeDBM) {
+    override fun deleteItem() {
+        this.dismiss()
+    }
 
+    override fun cancelEditOrCretion() {
+        this.dismiss()
     }
 
 }

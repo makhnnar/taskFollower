@@ -18,8 +18,8 @@ class TaskModelMapper : MapperContract<TaskVM,TaskDBM> {
         ) = vm
         return TaskDBM(
                 id,
-                name,
-                price,
+                name!!,
+                price!!,
                 isProgress,
                 isRunning,
                 lastTimeRunning,

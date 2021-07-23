@@ -1,6 +1,7 @@
 package com.pedrogomez.taskfollower.view.list
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.pedrogomez.taskfollower.R
 import com.pedrogomez.taskfollower.base.FragmentBase
+import com.pedrogomez.taskfollower.databinding.FragmentEditCreateBinding
 import com.pedrogomez.taskfollower.databinding.FragmentListBinding
 import com.pedrogomez.taskfollower.domian.view.TaskVM
 import com.pedrogomez.taskfollower.presentation.TaskViewModel
@@ -52,6 +54,16 @@ class ListTasksFragment : FragmentBase(),
                 if(it.isNotEmpty()){
                     binding.noElements.visibility = View.GONE
                     binding.listView.setData(it)
+                }
+            }
+        )
+        carsViewModel.taskFormState.observe(
+            viewLifecycleOwner,
+            Observer {
+                if(!it.isDataValid){
+                    Log.i("taskFormState", "initObservers: hay data")
+                }else{
+
                 }
             }
         )

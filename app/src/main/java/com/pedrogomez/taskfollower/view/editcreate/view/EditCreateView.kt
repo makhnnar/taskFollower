@@ -1,51 +1,51 @@
-package com.pedrogomez.taskfollower.view.editcreate
+package com.pedrogomez.taskfollower.view.editcreate.view
 
 import android.content.Context
 import android.util.AttributeSet
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.ImageView
-import androidx.appcompat.widget.AppCompatEditText
-import androidx.appcompat.widget.AppCompatSpinner
-import androidx.appcompat.widget.AppCompatTextView
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.checkbox.MaterialCheckBox
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.pedrogomez.taskfollower.R
 import com.pedrogomez.taskfollower.databinding.ViewEditCreateBinding
 import com.pedrogomez.taskfollower.domian.db.DailyTimeDBM
 import com.pedrogomez.taskfollower.domian.view.TaskVM
+import com.pedrogomez.taskfollower.view.editcreate.SpinnerListAdapter
 import kotlin.collections.ArrayList
 
-class EditCreateCarView @JvmOverloads constructor(
+class EditCreateView @JvmOverloads constructor(
         context: Context,
         attrs: AttributeSet? = null,
         defStyle: Int = 0
 ) : ConstraintLayout(context, attrs, defStyle){
 
-    val TAG = EditCreateCarView::class.simpleName
+    val TAG = EditCreateView::class.simpleName
 
     var binding : ViewEditCreateBinding = ViewEditCreateBinding.inflate(
             LayoutInflater.from(context),
             this
     )
 
-    private var etModel : TextInputEditText
+    private var etNameTask : TextInputEditText
 
-    private var etPrice : TextInputEditText
+    private var etAssingTime : TextInputEditText
 
     private var sCategory : TextInputLayout
+
+    private var checkBox : MaterialCheckBox
 
     private var sPinner : AutoCompleteTextView
 
     private var btnSave : ImageView
 
     private var btnCancel : ImageView
+
+    private var btnDelete : ImageView
 
     private var taskVM: TaskVM? = null
 
@@ -61,17 +61,26 @@ class EditCreateCarView @JvmOverloads constructor(
         attrs.let {
 
         }
-        etModel = binding.etModel
-        etPrice = binding.etPrice
+        etNameTask = binding.etNameTask
+        etAssingTime = binding.etAssinedTime
         sCategory = binding.sCategory
         sPinner = binding.mySpinnerDropdown
         btnSave =  binding.btnAdd
         btnCancel =  binding.btnDiscard
+        btnDelete =  binding.btnDelete
+        checkBox =  binding.checkCounter
         btnSave.setOnClickListener {
-
+            userActions?.saveItem(
+                etNameTask.text.toString(),
+                etAssingTime.text.toString(),
+                checkBox.isChecked
+            )
         }
         btnCancel.setOnClickListener {
-
+            userActions?.cancelEditOrCretion()
+        }
+        btnDelete.setOnClickListener {
+            userActions?.deleteItem()
         }
         sPinner.onItemClickListener = AdapterView.OnItemClickListener { parent, arg1, position, id ->
             Log.i(TAG, "onItemSelected: ${array[position]}")
@@ -91,11 +100,39 @@ class EditCreateCarView @JvmOverloads constructor(
         }
     }
 
+    fun setItem(
+        name:String,
+        assignedTime:String,
+        isProgress:Boolean
+    ){
+        etNameTask.setText(name)
+        etAssingTime.setText(name)
+        checkBox.isChecked = isProgress
+    }
+
+    fun setErrors(
+        nameError: Int?,
+        timeError: Int?
+    ) {
+        nameError?.let {
+            etNameTask.error = context.getString(it)
+        }
+        timeError?.let {
+            etAssingTime.error = context.getString(it)
+        }
+    }
+
     interface UserActions{
 
-        fun saveItem(taskVM: TaskVM)
+        fun saveItem(
+            name:String?,
+            assignedTime:String?,
+            isProgress:Boolean
+        )
 
-        fun saveCategory(dailyTimeDBM: DailyTimeDBM)
+        fun deleteItem()
+
+        fun cancelEditOrCretion()
 
     }
 }

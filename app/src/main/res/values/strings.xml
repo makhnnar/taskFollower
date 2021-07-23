@@ -17,6 +17,8 @@
     <string name="there_is_no_elements_to_show_please_add_some">There are no elements to show. Please add some</string>
     <string name="is_a_progress_clock">Is a progress clock?</string>
     <string name="assigned_time">Assigned Time</string>
+    <string name="invalid_name">Write a non empty name</string>
+    <string name="invalid_time">Your time has to be grater than zero</string>
     <string-array name="state_car">
         <item>Sleeping</item>
         <item>Working</item>

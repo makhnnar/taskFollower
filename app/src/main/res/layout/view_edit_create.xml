@@ -43,7 +43,7 @@
         android:orientation="horizontal" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/etModel"
+        android:id="@+id/etNameTask"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:hint="@string/dummy_model"
@@ -63,7 +63,7 @@
         app:layout_constraintBottom_toTopOf="@id/gdV1"/>
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/etPrice"
+        android:id="@+id/etAssinedTime"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:hint="@string/dummy_price"
