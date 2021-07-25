@@ -12,13 +12,12 @@ import com.pedrogomez.taskfollower.databinding.FragmentDetailBinding
 import com.pedrogomez.taskfollower.domian.view.TaskVM
 import com.pedrogomez.taskfollower.presentation.TaskViewModel
 import org.koin.android.viewmodel.ext.android.getViewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class DetailCarFrament : FragmentBase(),
     DetailCarView.UserActions{
 
-    private val carsViewModel by lazy {
-        requireParentFragment().getViewModel<TaskViewModel>()
-    }
+    private val carsViewModel : TaskViewModel by viewModel()
 
     private lateinit var binding: FragmentDetailBinding
 

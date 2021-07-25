@@ -1,4 +1,4 @@
-package com.pedrogomez.taskfollower.repository
+package com.pedrogomez.taskfollower.repository.db
 
 import androidx.room.*
 import com.pedrogomez.taskfollower.domian.db.TaskDBM

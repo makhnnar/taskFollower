@@ -5,9 +5,9 @@ import com.pedrogomez.taskfollower.domian.db.TaskDBM
 import com.pedrogomez.taskfollower.domian.mapper.MapperContract
 import com.pedrogomez.taskfollower.domian.mapper.TaskModelMapper
 import com.pedrogomez.taskfollower.domian.view.TaskVM
-import com.pedrogomez.taskfollower.repository.TaskDB
-import com.pedrogomez.taskfollower.repository.TaskLocalRepo
-import com.pedrogomez.taskfollower.repository.RepositoryContract
+import com.pedrogomez.taskfollower.repository.db.TaskDB
+import com.pedrogomez.taskfollower.repository.db.TaskLocalRepo
+import com.pedrogomez.taskfollower.repository.db.RepositoryContract
 import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module
 

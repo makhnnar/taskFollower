@@ -1,17 +1,14 @@
-package com.pedrogomez.taskfollower.repository
+package com.pedrogomez.taskfollower.repository.db
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.map
-import com.pedrogomez.taskfollower.domian.db.DailyTimeDBM
 import com.pedrogomez.taskfollower.domian.db.TaskDBM
 import com.pedrogomez.taskfollower.domian.mapper.MapperContract
 import com.pedrogomez.taskfollower.domian.view.TaskVM
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
 
 class TaskLocalRepo(
-        private val activityDao: TaskDao,
-        private val mapperContract: MapperContract<TaskVM,TaskDBM>,
+    private val activityDao: TaskDao,
+    private val mapperContract: MapperContract<TaskVM,TaskDBM>,
 ) : RepositoryContract {
 
     override suspend fun addTask(taskVM: TaskVM) {

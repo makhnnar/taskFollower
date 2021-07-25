@@ -71,4 +71,8 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$archLifecycleVersion"
     implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
     implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
+
+    //data store
+    implementation "androidx.datastore:datastore-preferences:1.0.0-alpha06"
+
 }

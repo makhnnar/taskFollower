@@ -10,8 +10,10 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.pedrogomez.taskfollower.R
 import com.pedrogomez.taskfollower.databinding.FragmentEditCreateBinding
 import com.pedrogomez.taskfollower.presentation.TaskViewModel
+import com.pedrogomez.taskfollower.view.editcreate.presentation.EditCreateVM
 import com.pedrogomez.taskfollower.view.editcreate.view.EditCreateView
 import org.koin.android.viewmodel.ext.android.getViewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class EditCreateTaskDialog : BottomSheetDialogFragment(),
     EditCreateView.UserActions{
@@ -19,6 +21,8 @@ class EditCreateTaskDialog : BottomSheetDialogFragment(),
     private val taskViewModel by lazy {
         requireParentFragment().getViewModel<TaskViewModel>()
     }
+
+    private val editCreateVM : EditCreateVM by viewModel()
 
     private var editView : EditCreateView? = null
 
@@ -47,7 +51,7 @@ class EditCreateTaskDialog : BottomSheetDialogFragment(),
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        taskViewModel.taskFormState.observe(
+        editCreateVM.taskFormState.observe(
             this@EditCreateTaskDialog,
             Observer {
                 if(!it.isDataValid){
@@ -67,7 +71,7 @@ class EditCreateTaskDialog : BottomSheetDialogFragment(),
         assignedTime:String?,
         isProgress:Boolean
     ) {
-        taskViewModel.taskDataChanged(
+        editCreateVM.taskDataChanged(
             name,
             assignedTime,
             isProgress

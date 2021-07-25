@@ -4,9 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.pedrogomez.taskfollower.domian.db.DailyTime
 import com.pedrogomez.taskfollower.domian.view.CarModel
-import com.pedrogomez.taskfollower.repository.RepositoryContract
+import com.pedrogomez.taskfollower.repository.db.RepositoryContract
 import com.pedrogomez.taskfollower.utils.DataHelper
-import com.pedrogomez.taskfollower.utils.getOrAwaitValue
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Test
