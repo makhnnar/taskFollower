@@ -11,7 +11,7 @@ import com.pedrogomez.taskfollower.domian.view.TaskVM
  *  create stats detail view model for stats details
  *  create class diagram class for watch more carefully the interdependency between classes
  * */
-interface RepositoryContract {
+interface DBRepository {
 
     suspend fun addTask(taskVM: TaskVM)
 
@@ -20,5 +20,7 @@ interface RepositoryContract {
     suspend fun deleteTask(taskVM: TaskVM)
 
     fun tasks() : LiveData<List<TaskVM>>
+
+    fun getTaskById(id:Long) : LiveData<TaskVM>
 
 }

@@ -2,7 +2,7 @@ package com.pedrogomez.taskfollower.repository.datastore
 
 import kotlinx.coroutines.flow.Flow
 
-interface LocalDataStore {
+interface DSRepository {
 
     val selectedTaskId: Flow<Long>
 

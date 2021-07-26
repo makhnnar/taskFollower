@@ -7,7 +7,7 @@ import com.pedrogomez.taskfollower.domian.mapper.TaskModelMapper
 import com.pedrogomez.taskfollower.domian.view.TaskVM
 import com.pedrogomez.taskfollower.repository.db.TaskDB
 import com.pedrogomez.taskfollower.repository.db.TaskLocalRepo
-import com.pedrogomez.taskfollower.repository.db.RepositoryContract
+import com.pedrogomez.taskfollower.repository.db.DBRepository
 import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module
 
@@ -28,7 +28,7 @@ val viewToDbMapper = module{
 }
 
 val carsRepository = module{
-    single<RepositoryContract>{
+    single<DBRepository>{
         TaskLocalRepo(
             get<TaskDB>().activities(),
             get()

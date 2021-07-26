@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.pedrogomez.taskfollower.domian.db.DailyTime
 import com.pedrogomez.taskfollower.domian.view.CarModel
-import com.pedrogomez.taskfollower.repository.db.RepositoryContract
+import com.pedrogomez.taskfollower.repository.db.DBRepository
 import com.pedrogomez.taskfollower.utils.DataHelper
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
@@ -17,7 +17,7 @@ class CarsViewModelTest {
 
     lateinit var SUT: TaskViewModel
 
-    var repositoryContractTD = RepositoryContractTD()
+    var repositoryContractTD = DBRepositoryTD()
 
     @Before
     fun setUp() {
@@ -125,7 +125,7 @@ class CarsViewModelTest {
         }
     }
 
-    class RepositoryContractTD : RepositoryContract {
+    class DBRepositoryTD : DBRepository {
 
         var carModel: CarModel? = null
 

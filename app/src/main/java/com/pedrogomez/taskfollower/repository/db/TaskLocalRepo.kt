@@ -9,7 +9,7 @@ import com.pedrogomez.taskfollower.domian.view.TaskVM
 class TaskLocalRepo(
     private val activityDao: TaskDao,
     private val mapperContract: MapperContract<TaskVM,TaskDBM>,
-) : RepositoryContract {
+) : DBRepository {
 
     override suspend fun addTask(taskVM: TaskVM) {
         activityDao.insertTask(
@@ -34,6 +34,12 @@ class TaskLocalRepo(
             it.map { task ->
                 mapperContract.fromDBtoVM(task)
             }
+        }
+    }
+
+    override fun getTaskById(id: Long): LiveData<TaskVM> {
+        return activityDao.getTaskById(id).map {
+            mapperContract.fromDBtoVM(it)
         }
     }
 }

@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.map
 
 class TaskDataStore(
     val context: Context
-):LocalDataStore {
+):DSRepository {
 
     private val dataStore : DataStore<Preferences> = context.createDataStore(
         name = "tasks_store"
