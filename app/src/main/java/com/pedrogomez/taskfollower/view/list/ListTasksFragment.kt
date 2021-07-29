@@ -56,16 +56,6 @@ class ListTasksFragment : FragmentBase(),
                 }
             }
         )
-        carsViewModel.taskFormState.observe(
-            viewLifecycleOwner,
-            Observer {
-                if(!it.isDataValid){
-                    Log.i("taskFormState", "initObservers: hay data")
-                }else{
-
-                }
-            }
-        )
     }
 
     override fun addNewItem() {

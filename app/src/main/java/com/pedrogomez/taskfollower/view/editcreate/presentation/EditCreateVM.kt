@@ -6,36 +6,37 @@ import androidx.lifecycle.viewModelScope
 import com.pedrogomez.taskfollower.R
 import com.pedrogomez.taskfollower.domian.view.FormState
 import com.pedrogomez.taskfollower.domian.view.TaskVM
-import com.pedrogomez.taskfollower.repository.DataManager
+import com.pedrogomez.taskfollower.repository.datastore.DSRepository
 import com.pedrogomez.taskfollower.repository.db.DBRepository
 import kotlinx.coroutines.launch
 
 class EditCreateVM(
-    private val dataManager: DataManager
+    private val DB: DBRepository,
+    private val DS : DSRepository
 ) : ViewModel()  {
 
     val taskFormState =  MutableLiveData<FormState>()
 
-    fun  getSelected() = dataManager.selected()
+    //fun  getSelected() = dataManager.selected()
 
     fun addTask(task: TaskVM) {
         viewModelScope.launch {
-            dataManager.addTask(task)
+            DB.addTask(task)
         }
     }
 
     fun updateTask(task: TaskVM) {
         viewModelScope.launch {
-            dataManager.updateTask(task)
+            DB.updateTask(task)
         }
     }
 
     fun saveCar(task: TaskVM) {
         viewModelScope.launch {
             if(task.id!=0L){
-                dataManager.updateTask(task)
+                DB.updateTask(task)
             }else{
-                dataManager.addTask(task)
+                DB.addTask(task)
             }
         }
     }
