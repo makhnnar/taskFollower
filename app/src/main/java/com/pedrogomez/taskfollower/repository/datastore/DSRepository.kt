@@ -4,7 +4,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface DSRepository {
 
-    val selectedTaskId: Flow<Long>
+    suspend fun selectedTaskId():Long
 
     suspend fun setSelectedTaskId(selectedTaskId: Long)
 

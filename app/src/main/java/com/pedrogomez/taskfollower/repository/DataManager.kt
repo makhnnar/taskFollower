@@ -5,9 +5,9 @@ import com.pedrogomez.taskfollower.domian.view.TaskVM
 
 interface DataManager {
 
-    fun deleteSelected()
+    suspend fun deleteSelected()
 
-    fun setSelected(id:Long)
+    suspend fun setSelected(id:Long)
 
     fun selected():LiveData<TaskVM>
 

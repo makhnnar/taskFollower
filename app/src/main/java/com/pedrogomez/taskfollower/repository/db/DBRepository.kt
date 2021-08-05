@@ -19,6 +19,8 @@ interface DBRepository {
 
     suspend fun deleteTask(taskVM: TaskVM)
 
+    suspend fun deleteTaskById(id:Long)
+
     fun tasks() : LiveData<List<TaskVM>>
 
     fun getTaskById(id:Long) : LiveData<TaskVM>

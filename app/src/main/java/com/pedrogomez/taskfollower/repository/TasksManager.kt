@@ -5,17 +5,20 @@ import androidx.lifecycle.MutableLiveData
 import com.pedrogomez.taskfollower.domian.view.TaskVM
 import com.pedrogomez.taskfollower.repository.datastore.DSRepository
 import com.pedrogomez.taskfollower.repository.db.DBRepository
+import kotlinx.coroutines.CoroutineDispatcher
 
 class TasksManager(
     private val DB: DBRepository,
     private val DS: DSRepository
 ) : DataManager {
 
-    override fun deleteSelected() {
-         
+    override suspend fun deleteSelected() {
+         DB.deleteTaskById(
+             DS.selectedTaskId()
+         )
     }
 
-    override fun setSelected(id: Long) {
+    override suspend fun setSelected(id: Long) {
          
     }
 

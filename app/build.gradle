@@ -57,6 +57,7 @@ dependencies {
     testImplementation 'org.mockito:mockito-core:3.9.0'
     testImplementation "org.mockito.kotlin:mockito-kotlin:3.2.0"
 
+    implementation "androidx.core:core-ktx:$coreVersion"
     //room
     implementation "androidx.room:room-runtime:$roomVersion"
     kapt "androidx.room:room-compiler:$roomVersion"

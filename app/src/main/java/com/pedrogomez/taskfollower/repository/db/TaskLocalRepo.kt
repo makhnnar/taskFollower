@@ -29,6 +29,10 @@ class TaskLocalRepo(
         )
     }
 
+    override suspend fun deleteTaskById(id: Long) {
+        activityDao.deleteTaskByID(id)
+    }
+
     override fun tasks(): LiveData<List<TaskVM>> {
         return activityDao.taks().map {
             it.map { task ->

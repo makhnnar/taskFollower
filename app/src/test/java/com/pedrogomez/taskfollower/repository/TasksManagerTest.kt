@@ -5,10 +5,11 @@ import com.pedrogomez.taskfollower.presentation.TaskViewModel
 import com.pedrogomez.taskfollower.repository.datastore.DSRepository
 import com.pedrogomez.taskfollower.repository.db.DBRepository
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.TestCoroutineDispatcher
+import org.junit.Before
 import org.junit.Test
 
 import org.junit.Assert.*
-import org.junit.Before
 import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.Mockito
@@ -22,7 +23,7 @@ class TasksManagerTest {
 
     private val ID: Long = 1
 
-    private lateinit var SUT : TaskViewModel
+    private lateinit var SUT : TasksManager
 
     @Mock
     lateinit var DBMock: DBRepository
@@ -32,21 +33,47 @@ class TasksManagerTest {
 
     @Before
     fun setUp() {
-        SUT = TaskViewModel(
+        SUT = TasksManager(
             DBMock,
             DSMock
         )
     }
 
     @Test
-    fun setSelected() {
+    fun deleteSelected() {
         runBlocking {
-            SUT.setSelected(ID)
-            verify(DBMock).getTaskById(ID)
+            successTaskId()
+            SUT.deleteSelected()
+            verify(DSMock).selectedTaskId()
+            verify(DBMock).deleteTaskById(ID)
         }
+    }
+
+    suspend fun successTaskId(){
+        Mockito.`when`(DSMock.selectedTaskId()).thenReturn(ID)
+    }
+
+    @Test
+    fun setSelected() {
+    }
+
+    @Test
+    fun selected() {
     }
 
     @Test
     fun tasks() {
+    }
+
+    @Test
+    fun addTask() {
+    }
+
+    @Test
+    fun updateTask() {
+    }
+
+    @Test
+    fun deleteTask() {
     }
 }
