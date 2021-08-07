@@ -19,27 +19,29 @@ class TasksManager(
     }
 
     override suspend fun setSelected(id: Long) {
-         
+         DS.setSelectedTaskId(id)
     }
 
-    override fun selected(): LiveData<TaskVM> {
-         return MutableLiveData()
+    override suspend fun selected(): LiveData<TaskVM> {
+        return DB.getTaskById(
+            DS.selectedTaskId()
+        )
     }
 
     override fun tasks(): LiveData<List<TaskVM>> {
-        return MutableLiveData()
+        return DB.tasks()
     }
 
     override suspend fun addTask(taskVM: TaskVM) {
-         
+         DB.addTask(taskVM)
     }
 
     override suspend fun updateTask(taskVM: TaskVM) {
-         
+         DB.updateTask(taskVM)
     }
 
     override suspend fun deleteTask(taskVM: TaskVM) {
-         
+         DB.deleteTask(taskVM)
     }
 
 }

@@ -9,7 +9,7 @@ interface DataManager {
 
     suspend fun setSelected(id:Long)
 
-    fun selected():LiveData<TaskVM>
+    suspend fun selected():LiveData<TaskVM>
 
     fun tasks():LiveData<List<TaskVM>>
 
