@@ -8,7 +8,7 @@ import com.pedrogomez.taskfollower.domian.view.TaskVM
 
 class TaskLocalRepo(
     private val activityDao: TaskDao,
-    private val mapperContract: MapperContract<TaskVM,TaskDBM>,
+    private val mapperContract: MapperContract<TaskVM,TaskDBM>
 ) : DBRepository {
 
     override suspend fun addTask(taskVM: TaskVM) {
