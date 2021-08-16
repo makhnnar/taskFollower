@@ -3,18 +3,15 @@ package com.pedrogomez.taskfollower.presentation
 import androidx.lifecycle.*
 import com.pedrogomez.taskfollower.domian.view.TaskVM
 import com.pedrogomez.taskfollower.repository.DataManager
-import com.pedrogomez.taskfollower.repository.datastore.DSRepository
-import com.pedrogomez.taskfollower.repository.db.DBRepository
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class TaskViewModel(
-    private val DB: DataManager
+    private val dataManager: DataManager
 ) : ViewModel() {
 
     val selectedTask = MutableLiveData<TaskVM?>()
 
-    fun task() = DB.tasks()
+    fun task() = dataManager.tasks()
 
     fun createNewTask(){
         viewModelScope.launch {
@@ -24,7 +21,9 @@ class TaskViewModel(
     }
 
     fun setSelected(id: Long) {
-
+        viewModelScope.launch {
+            dataManager.setSelected(id)
+        }
     }
 
 }
