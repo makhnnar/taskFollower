@@ -51,6 +51,16 @@ class EditCreateTaskDialog : BottomSheetDialogFragment(),
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        editCreateVM.getSelected().observe(
+            this@EditCreateTaskDialog,
+            {
+                editView?.setItem(
+                    it.name?:"",
+                    "${it.assignedTime?:0}",
+                    it.isProgress
+                )
+            }
+        )
         editCreateVM.taskFormState.observe(
             this@EditCreateTaskDialog,
             Observer {
