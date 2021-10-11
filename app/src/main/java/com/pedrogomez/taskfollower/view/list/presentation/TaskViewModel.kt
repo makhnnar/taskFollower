@@ -1,7 +1,6 @@
-package com.pedrogomez.taskfollower.presentation
+package com.pedrogomez.taskfollower.view.list.presentation
 
 import androidx.lifecycle.*
-import com.pedrogomez.taskfollower.domian.view.TaskVM
 import com.pedrogomez.taskfollower.repository.DataManager
 import kotlinx.coroutines.launch
 

@@ -19,7 +19,7 @@ class TaskDataStore(
         val SELECTED_TASK_ID = "selected_task_id"
     }
 
-    override suspend fun selectedTaskId(): Long{
+    override fun selectedTaskId(): Long{
         return sharedPreferences.getLong(
             PreferencesKeys.SELECTED_TASK_ID,
             0

@@ -6,45 +6,45 @@ import androidx.lifecycle.viewModelScope
 import com.pedrogomez.taskfollower.R
 import com.pedrogomez.taskfollower.domian.view.FormState
 import com.pedrogomez.taskfollower.domian.view.TaskVM
+import com.pedrogomez.taskfollower.repository.DataManager
 import com.pedrogomez.taskfollower.repository.datastore.DSRepository
 import com.pedrogomez.taskfollower.repository.db.DBRepository
 import kotlinx.coroutines.launch
 
 class EditCreateVM(
-    private val DB: DBRepository,
-    private val DS : DSRepository
-) : ViewModel()  {
+    private val dataManager: DataManager
+) : ViewModel() {
 
-    val taskFormState =  MutableLiveData<FormState>()
+    val taskFormState = MutableLiveData<FormState>()
 
-    //fun  getSelected() = dataManager.selected()
+    fun getSelected() = dataManager.selected()
 
     fun addTask(task: TaskVM) {
         viewModelScope.launch {
-            DB.addTask(task)
+            dataManager.addTask(task)
         }
     }
 
     fun updateTask(task: TaskVM) {
         viewModelScope.launch {
-            DB.updateTask(task)
+            dataManager.updateTask(task)
         }
     }
 
-    fun saveCar(task: TaskVM) {
+    fun saveTask(task: TaskVM) {
         viewModelScope.launch {
-            if(task.id!=0L){
-                DB.updateTask(task)
-            }else{
-                DB.addTask(task)
+            if (task.id != 0L) {
+                dataManager.updateTask(task)
+            } else {
+                dataManager.addTask(task)
             }
         }
     }
 
     fun taskDataChanged(
-        name:String?,
-        assignedTime:String?,
-        isProgress:Boolean
+        name: String?,
+        assignedTime: String?,
+        isProgress: Boolean
     ) {
         if (!isValidField(name)) {
             taskFormState.value = FormState(
@@ -61,7 +61,7 @@ class EditCreateVM(
     }
 
     private fun isValidField(value: String?): Boolean {
-        return value!=null && value.isNotEmpty()
+        return value != null && value.isNotEmpty()
     }
 
 }

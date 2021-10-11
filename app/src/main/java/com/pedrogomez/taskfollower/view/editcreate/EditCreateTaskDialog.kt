@@ -9,7 +9,7 @@ import androidx.lifecycle.Observer
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.pedrogomez.taskfollower.R
 import com.pedrogomez.taskfollower.databinding.FragmentEditCreateBinding
-import com.pedrogomez.taskfollower.presentation.TaskViewModel
+import com.pedrogomez.taskfollower.view.list.presentation.TaskViewModel
 import com.pedrogomez.taskfollower.view.editcreate.presentation.EditCreateVM
 import com.pedrogomez.taskfollower.view.editcreate.view.EditCreateView
 import org.koin.android.viewmodel.ext.android.getViewModel

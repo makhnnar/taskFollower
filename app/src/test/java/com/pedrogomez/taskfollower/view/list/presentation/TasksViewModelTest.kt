@@ -1,4 +1,4 @@
-package com.pedrogomez.taskfollower.presentation
+package com.pedrogomez.taskfollower.view.list.presentation
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.LiveData

@@ -22,7 +22,7 @@ class TasksManager(
          DS.setSelectedTaskId(id)
     }
 
-    override suspend fun selected(): LiveData<TaskVM> {
+    override fun selected(): LiveData<TaskVM> {
         return DB.getTaskById(
             DS.selectedTaskId()
         )
